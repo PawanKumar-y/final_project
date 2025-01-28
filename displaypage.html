@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Page</title>
+    <style>
+        body
+        {
+            height:100%;
+            background-image: url("Images/projectimg1.jpg") ;
+            background-blend-mode: overlay;
+            background-color: rgb(147, 146, 146);
+            background-position:stretch;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+        form
+        {
+            width:1fr;
+            max-width:600px;
+            margin:25px auto;
+            border:2px solid black;
+            border-radius: 20px;
+            text-align:left;
+            background-color:blanchedalmond;
+            display:flex;
+
+        }
+        img
+        {
+            width: 30%;
+            object-fit:contain;
+            border-radius: 10px; 
+        }
+        p
+        {
+            width: 100%; 
+            max-width: 300px; 
+            height: auto;
+            margin:10px; 
+            padding: 10px; 
+        }
+        #UName
+        {
+            word-wrap:break-word;
+        }
+        #Description
+        {
+            word-wrap:break-word;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <section>
+            <p id="UName"></p>
+            <p id="Email"></p>
+            <p id="Department"></p>
+            <p id="ProjecT"></p>
+            <p id="Description"></p>
+        </section>
+        <img id="Images">
+    </form>
+    
+    <script>
+        const username=localStorage.getItem("Username");
+        const mail_id=localStorage.getItem("Email_Id");
+        const department=localStorage.getItem("Department");
+        const project=localStorage.getItem("Project");
+        const description=localStorage.getItem("Description");
+        const image=localStorage.getItem("Image");
+
+        const dispusername=document.getElementById("UName");
+        const dispemailid=document.getElementById("Email");
+        const dispdepartment=document.getElementById("Department");
+        const dispproject=document.getElementById("ProjecT");
+        const dispdescription=document.getElementById("Description");
+        const dispimage=document.getElementById("Images")
+
+        dispusername.innerText=`UserName: ${username}`;
+        dispemailid.innerText=`Email-Id: ${mail_id}`;
+        dispdepartment.innerText=`Department: ${department}`;
+        dispproject.innerText=`Project: ${project}`;
+        dispdescription.innerText=`Description: ${description}`;
+        dispimage.src=image;
+
+        document.addEventListener("popstate",function(){alert("Thank you for visiting my page.");});
+    </script>
+</body>
+</html>
